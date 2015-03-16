@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EB1CA95A1AB237DE00E8A025 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1CA9591AB237DE00E8A025 /* PlaySoundViewController.swift */; };
-		EB1CA95C1AB23D1500E8A025 /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB1CA95B1AB23D1500E8A025 /* movie_quote.mp3 */; };
 		EB29FFDA1AB0D5C8008E038E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29FFD91AB0D5C8008E038E /* AppDelegate.swift */; };
 		EB29FFDC1AB0D5C8008E038E /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29FFDB1AB0D5C8008E038E /* RecordSoundsViewController.swift */; };
 		EB29FFE11AB0D5C8008E038E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB29FFE01AB0D5C8008E038E /* Images.xcassets */; };
@@ -30,7 +29,6 @@
 
 /* Begin PBXFileReference section */
 		EB1CA9591AB237DE00E8A025 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
-		EB1CA95B1AB23D1500E8A025 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie_quote.mp3; sourceTree = "<group>"; };
 		EB29FFD41AB0D5C8008E038E /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB29FFD81AB0D5C8008E038E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB29FFD91AB0D5C8008E038E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 		EB29FFD71AB0D5C8008E038E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EB1CA95B1AB23D1500E8A025 /* movie_quote.mp3 */,
 				EB29FFD81AB0D5C8008E038E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -202,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB29FFE41AB0D5C8008E038E /* LaunchScreen.xib in Resources */,
-				EB1CA95C1AB23D1500E8A025 /* movie_quote.mp3 in Resources */,
 				EB29FFE11AB0D5C8008E038E /* Images.xcassets in Resources */,
 				EBF90B4E1AB384E2009CD5AF /* Main.storyboard in Resources */,
 			);
