@@ -21,20 +21,19 @@ class PlaySoundViewController: UIViewController {
         
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioEngine = AVAudioEngine()
-        
+        audioPlayer.enableRate = true
         // Initialize audio file, taking the filePathURl in receivedAudio
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    /**
+    This function plays audio file with certain pitch
+    
+    :param: pitch Audio's pitch we want to set
+    
+    */
     func playAudioWithVariablePitch(pitch:Float) {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAudioEngine()
         
         // Create node Player
         var pitchPlayer = AVAudioPlayerNode()
@@ -51,7 +50,7 @@ class PlaySoundViewController: UIViewController {
         // Connect timepitch to engine output
         audioEngine.connect(timePitch, to: audioEngine.outputNode, format:nil)
         
-        // Add auio file to the player
+        // Add audio file to the player
         pitchPlayer.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         audioEngine.startAndReturnError(nil)
         
@@ -59,29 +58,22 @@ class PlaySoundViewController: UIViewController {
     }
     
     @IBAction func stopButtonPressed(sender: UIButton) {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAudioEngine()
     }
+    
     @IBAction func fastButtonPressed(sender: UIButton) {
         // We need to reset audioEngine and stop the player before playing
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
-        audioPlayer.enableRate = true
+        stopAudioEngine()
         audioPlayer.rate = 1.5
         audioPlayer.play()
     }
 
     @IBAction func slowButtonPressed(sender: UIButton) {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
-        audioPlayer.enableRate = true
+        stopAudioEngine()
         audioPlayer.rate = 0.5
         audioPlayer.play()
     }
-
+    
 
     @IBAction func playChipMunk(sender: UIButton) {
         playAudioWithVariablePitch(1000)
@@ -89,5 +81,14 @@ class PlaySoundViewController: UIViewController {
 
     @IBAction func playDarthvaderAudio(sender: UIButton) {
         playAudioWithVariablePitch(-1000)
+    }
+    
+    /**
+    This helper function stops and resets audio player and engine
+    */
+    func stopAudioEngine() {
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
 }

@@ -22,18 +22,12 @@ class RecordSoundsViewController: UIViewController,AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically
         recodingLabel.text = "Tap to Record"
     }
     override func viewWillAppear(animated: Bool) {
         // Hide Stop button and show record button
         stopButton.hidden = true
         recordButton.hidden = false
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
     }
 
     @IBAction func recordAudio(sender: UIButton) {
@@ -44,7 +38,7 @@ class RecordSoundsViewController: UIViewController,AVAudioRecorderDelegate {
         recordButton.hidden = true
         
         // Take director's path
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
         // Get current data time
         let currentDateTime = NSDate()
@@ -70,8 +64,8 @@ class RecordSoundsViewController: UIViewController,AVAudioRecorderDelegate {
         if (segue.identifier == "stopRecording") {
             
             // Create PlaySoundVC which is the destination View Controller
-            let PlaySoundVC:PlaySoundViewController = segue.destinationViewController as PlaySoundViewController
-            let data = sender as RecordedAudio
+            let PlaySoundVC:PlaySoundViewController = segue.destinationViewController as! PlaySoundViewController
+            let data = sender as! RecordedAudio
             
             // Assign Playsound's receiveAudio to data
             PlaySoundVC.receivedAudio = data
@@ -79,7 +73,7 @@ class RecordSoundsViewController: UIViewController,AVAudioRecorderDelegate {
         
     }
     
-    // After user hits Stop button, if the audio recorded successylly then we performe the segue
+    // After user hits Stop button, if the audio recorded successfully then we performe the segue
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if(flag) {
             recordAudio = RecordedAudio(filePathUrl: recorder.url, title: recorder.url.lastPathComponent!)
